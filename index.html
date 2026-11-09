@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <h1>Random joke generator</h1>
+    <div id="result"></div>
+</body>
+<script>
+    
+    fetch('https://randomuser.me/api/').then(item=>(item.json())).then(user=>displayData(user))
+
+    // 2.display to the browser
+
+    function displayData(user) {
+        for(person of user){
+            console.log(user);
+            
+            htmlData = `
+            
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item gx-3 gy-4">${person.results}</li>
+                    <li class="list-group-item gx-3 gy-4">${person.name.title},${person.name.first},</li>
+                    
+                 </ul>
+            </div>
+            `
+            result.innerHTML += htmlData
+        }
+    }
+    
+</script>
+</html>
